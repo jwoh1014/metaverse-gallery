@@ -7,16 +7,16 @@
 html,
 body
 {
-    height: 200vh;
+    height: 100vh;
     font-family: 'Poppins';
     background-color: #cce0ff;
     color: #000;
 }
 
-/* body
+body
 {
     overflow-x: hidden;
-} */
+}
 
 /* .webgl
 {
@@ -25,10 +25,10 @@ body
     left: 0;
     outline: none;
     mix-blend-mode: exclusion;
-}
+} */
 
 .container {
-    height: 100vh;
+    height: 0vh;
     display: grid;
     place-items: center;
 }
@@ -37,4 +37,4 @@ h1 {
     font-size: 8rem;
     text-transform: uppercase;
     color: white;
-} */
+}

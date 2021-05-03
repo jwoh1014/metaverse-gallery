@@ -350,7 +350,7 @@ let objects = [];
 init();
 animate(0);
 
-function make_one_block(n, image, scene, loader, mesh, centerX) {
+function make_one_block(n, image, scene, loader, mesh, centerX, centerZ) {
     // cloth material
     const cloth = cloths[n];
 
@@ -359,9 +359,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
 
     const clothMaterial = new THREE.MeshLambertMaterial({
         map: clothTexture,
-        side: THREE.DoubleSide,
-
-        alphaTest: 0.5
+        side: THREE.DoubleSide
     });
 
     // cloth geometry
@@ -370,7 +368,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     // cloth mesh
     let object = new THREE.Mesh(clothGeometrys[n], clothMaterial)
     objects.push(object);
-    object.position.set(centerX, 0, 0);
+    object.position.set(centerX, 0, centerZ);
     object.castShadow = true;
     scene.add(object);
 
@@ -386,6 +384,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     mesh = new THREE.Mesh(poleGeo, poleMat);
     mesh.position.x = centerX - 125;
     mesh.position.y = - 62;
+    mesh.position.z = centerZ;
     mesh.receiveShadow = true;
     mesh.castShadow = true;
     scene.add(mesh);
@@ -393,6 +392,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     mesh = new THREE.Mesh(poleGeo, poleMat);
     mesh.position.x = centerX + 125;
     mesh.position.y = - 62;
+    mesh.position.z = centerZ;
     mesh.receiveShadow = true;
     mesh.castShadow = true;
     scene.add(mesh);
@@ -400,6 +400,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     mesh = new THREE.Mesh(new THREE.BoxGeometry(255, 5, 5), poleMat);
     mesh.position.y = - 250 + (750 / 2);
     mesh.position.x = centerX;
+    mesh.position.z = centerZ;
     mesh.receiveShadow = true;
     mesh.castShadow = true;
     scene.add(mesh);
@@ -408,6 +409,7 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     mesh = new THREE.Mesh(gg, poleMat);
     mesh.position.y = - 250;
     mesh.position.x = centerX + 125;
+    mesh.position.z = centerZ;
     mesh.receiveShadow = true;
     mesh.castShadow = true;
     scene.add(mesh);
@@ -415,6 +417,22 @@ function make_one_block(n, image, scene, loader, mesh, centerX) {
     mesh = new THREE.Mesh(gg, poleMat);
     mesh.position.y = - 250;
     mesh.position.x = centerX - 125;
+    mesh.position.z = centerZ;
+    mesh.receiveShadow = true;
+    mesh.castShadow = true;
+    scene.add(mesh);
+
+    // // name mesh
+    // const nameMat = new THREE.MeshLambertMaterial({
+    //     map: clothTexture,
+    //     side: THREE.DoubleSide
+    // });
+
+    const hh = new THREE.BoxGeometry(80, 80, 10);
+    mesh = new THREE.Mesh(hh, poleMat);
+    mesh.position.y = - 250;
+    mesh.position.x = centerX + 200;
+    mesh.position.z = centerZ;
     mesh.receiveShadow = true;
     mesh.castShadow = true;
     scene.add(mesh);
@@ -478,9 +496,9 @@ function init() {
     mesh.receiveShadow = true;
     scene.add(mesh);
 
-    make_one_block(0, '/images/palette_logo.png',scene, loader, mesh, 0);
-    make_one_block(1, '/images/monalisa.jpg', scene, loader, mesh, 500);
-    make_one_block(2, '/images/nft-art-2.jpg', scene, loader, mesh, -500);
+    make_one_block(0, '/images/bravegirls.jpg', scene, loader, mesh, 0, -500);
+    make_one_block(1, '/images/just_drive.jpg', scene, loader, mesh, 500, 0);
+    make_one_block(2, '/images/rollin.jpg', scene, loader, mesh, -500, 0);
 
     // renderer
 
@@ -515,7 +533,6 @@ function init() {
     gui.add(params, 'enableWind').name('Enable wind');
     gui.add(params, 'showBall').name('Show ball');
     gui.add(params, 'togglePins').name('Toggle pins');
-    //
 
     if (typeof TESTING !== 'undefined') {
 
