@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Kollectible</title>
+    <title>Nearose | Non Fungible Gallery</title>
+    <meta content="Nearose | Non Fungible Rose" name="description" />
+    <meta content="" name="keywords" />
+    <meta content="" name="author" />
+    <link rel="shortcut icon" href="/src/favicon.png " />
+    <meta property="og:image" content="/src/favicon.png " />
+    <!-- <meta property="og:image" content="./favicon.ico" /> -->
+    <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>Brave Girls</h1>
-    </div>
-    <audio autoplay control>
-        <source src = "../static/audio/rollin.mp3" type="audio/mp3">
+    <audio autoplay >
+        <source src = "../static/audio/2002.mp3" type="audio/mp3">
     </audio>
-    <canvas class="webgl"></canvas>
+    <!-- <div class="camerabox">
+        <video id="received_video" autoplay></video>
+        <video id="local_video" autoplay muted></video>
+        <button id="hangup-button" onclick="hangUpCall();" role="button" disabled>
+            Hang Up
+        </button>
+    </div> -->
+    <div id="container"></div>
+    <div id="button1" class=button>BGM</div>
+    <div id="button2" class=button>Camera</div>
+    <div id="button3" class=button>Connect</div>
+    <div id="w_button" class=keybutton></div>
+    <div id="a_button" class=keybutton></div>
+    <div id="s_button" class=keybutton></div>
+    <div id="d_button" class=keybutton></div>
+    <div id="space_button" class=keybutton></div>
+
     <section></section>
 </body>
 </html>
